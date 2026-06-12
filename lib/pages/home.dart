@@ -66,6 +66,7 @@ class HomePage extends StatelessWidget {
                   type: SurfaceType.surfaceVariant,
                   child: SafeArea(
                     top: false,
+                    bottom: false,
                     child: TabBar(
                       isScrollable: true,
                       tabAlignment: TabAlignment.start,
