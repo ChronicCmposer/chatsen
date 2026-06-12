@@ -125,6 +125,8 @@ class _AppState extends State<App> implements ClientListener {
                 colorSchemeSeed: Color(box.get('themeColor') as int? ?? 0xFF00FF00),
                 brightness: Brightness.dark,
               ),
+            ).copyWith(
+              scaffoldBackgroundColor: const Color(0xFF000000),
             ),
             themeMode: applicationAppearance.themeMode == 'dark'
                 ? ThemeMode.dark
