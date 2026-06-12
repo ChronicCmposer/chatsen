@@ -57,7 +57,7 @@ class _BlockedChatMessageState extends State<BlockedChatMessage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0 * (widget.messageAppearance.compact ? 1.0 : 2.0)),
+              padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0 * (widget.messageAppearance.compact ? 1.0 : 2.0)),
               child: Text.rich(
                 TextSpan(
                   children: [
@@ -106,7 +106,7 @@ class ChatMessage extends StatelessWidget {
             final chatMessage = message as ChannelMessageChat;
             if (chatMessage.subInfo != null) {
               return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0 * (messageAppearance.compact ? 1.0 : 2.0)),
+                padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0 * (messageAppearance.compact ? 1.0 : 2.0)),
                 child: Wrap(
                   alignment: WrapAlignment.start,
                   children: [
@@ -122,7 +122,7 @@ class ChatMessage extends StatelessWidget {
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 12.0 * messageAppearance.scale, vertical: 8.0 * messageAppearance.scale),
+                        padding: EdgeInsets.symmetric(horizontal: 6.0 * messageAppearance.scale, vertical: 8.0 * messageAppearance.scale),
                         child: Wrap(
                           alignment: WrapAlignment.start,
                           children: [
@@ -161,7 +161,7 @@ class ChatMessage extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0 * (messageAppearance.compact ? 1.0 : 2.0)),
+                padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0 * (messageAppearance.compact ? 1.0 : 2.0)),
                 child: buildMessageContent(context, chatMessage, messageAppearance),
               ),
             );
@@ -193,7 +193,7 @@ class ChatMessage extends StatelessWidget {
       children: [
         if (message.replyInfo != null)
           Padding(
-            padding: const EdgeInsets.only(bottom: 4.0),
+            padding: const EdgeInsets.only(bottom: 2.0),
             child: Row(
               children: [
                 if (messageAppearance.timestamps) SizedBox(width: 8.0 * messageAppearance.scale),
@@ -219,6 +219,15 @@ class ChatMessage extends StatelessWidget {
                     ),
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
+                      fontFamily: 'NotoSansMono',
+                      fontFamilyFallback: const [
+                        'Courier',
+                        'Courier New',
+                        'monospace',
+                      ],
+                      fontVariations: const [
+                         FontVariation('wdth', 80),
+                      ],
                       color: Theme.of(context).colorScheme.secondary,
                       fontSize: (Theme.of(context).textTheme.bodyMedium?.fontSize ?? 14.0) * messageAppearance.scale,
                     ),
@@ -293,7 +302,7 @@ class ChatMessage extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 4.0) * messageAppearance.scale,
                           child: Image(
                             image: CachedNetworkImageProvider(split.mipmap.last),
-                            height: (split.provider.name == 'Emoji' ? 24.0 : 32.0) * (1.0 / messageAppearance.scale),
+                            height: (split.provider.name == 'Emoji' ? 24.0 : 28.0) * (1.0 / messageAppearance.scale),
                             filterQuality: FilterQuality.high,
                           ),
                         ),
@@ -318,6 +327,17 @@ class ChatMessage extends StatelessWidget {
               ],
             ],
           ),
+           style: TextStyle(
+             fontFamily: 'NotoSansMono',
+             fontFamilyFallback: const [
+               'Courier',
+               'Courier New',
+               'monospace',
+             ],
+             fontVariations: const [
+                FontVariation('wdth', 80),
+             ],
+           ),
         ),
         if (message is ChannelMessageEmbeds)
           BlocBuilder<ChannelMessageEmbedsCubit, List<dynamic>>(

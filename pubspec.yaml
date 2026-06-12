@@ -63,3 +63,6 @@ flutter:
     - family: ProductSans
       fonts:
         - asset: fonts/ProductSans-Regular.ttf
+    - family: NotoSansMono
+      fonts:
+        - asset: fonts/NotoSansMono-VariableFont_wdth,wght.ttf
